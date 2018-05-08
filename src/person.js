@@ -8,6 +8,6 @@ let isDrink = (age) => {
     return age >= 21
 }
 
-let isOld = (age) => age >= 65;
+let isOld = (age) => age >= 60;
 
 export {isAdoult, isDrink, isOld as default}

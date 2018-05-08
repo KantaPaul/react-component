@@ -1,22 +1,8 @@
-// import './utility.js'
-// import single item
-// import { square } from './utility.js';
-// mport multipile item
-import anyName, {square, add} from './utility.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MyApp from './components/App';
 
-import old, {isAdoult, isDrink} from './person.js';
+  
+let app = document.getElementById('app');
 
-console.log('App js is running!');
-
-
-console.log('Square: ' +square(4));
-
-console.log('Add: ' +add(100, 23))
-
-console.log('Sub: ' +anyName(100, 81))
-
-console.log('Adoult: ' +isAdoult(18))
-
-console.log('Drink: ' +isDrink(20))
-
-console.log('Old: ' +old(65))
+ReactDOM.render(<MyApp />, app);
