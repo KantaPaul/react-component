@@ -4,21 +4,15 @@ import Header from './Header';
 import Options from './Options';
 
 class MyApp extends React.Component {
-    constructor(props) {
-        super(props);
-        this.removeAllOptions = this.removeAllOptions.bind(this);
-        this.addOption = this.addOption.bind(this);
-        this.removeSingleOption = this.removeSingleOption.bind(this);
-        this.state = {
-            options: []
-        }
+    state = {
+        options: []
     }
-    removeAllOptions() {
+    removeAllOptions = () => {
         this.setState(() => ({
             options: []
         }))
     }
-    addOption(option) {
+    addOption = (option) => {
         if (!option) {
         return "Add Valid value"   
         } else if(this.state.options.indexOf(option) > -1) {
@@ -28,7 +22,7 @@ class MyApp extends React.Component {
         options: e.options.concat([option])
         }));
     }
-    removeSingleOption(optionToRemove) {
+    removeSingleOption = (optionToRemove) => {
         this.setState((e) => {
         return {
             options: e.options.filter(option => {
@@ -37,25 +31,25 @@ class MyApp extends React.Component {
         };
         })
     }
-    componentDidMount() {
+    componentDidMount = () => {
         try {
-        let json = localStorage.getItem('options');
-        let options = JSON.parse(json);
+            let json = localStorage.getItem('options');
+            let options = JSON.parse(json);
         if (options) {
             this.setState(() => {
-            return {
-                options: options
-            }
+                return {
+                    options: options
+                }
             })
         }
         } catch (e) {
 
         }
     }
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate = (prevProps, prevState) => {
         if (prevState.options.length !== this.state.options.length) {
-        let json = JSON.stringify(this.state.options);
-        localStorage.setItem('options', json);
+            let json = JSON.stringify(this.state.options);
+            localStorage.setItem('options', json);
         }
     }
     render() {

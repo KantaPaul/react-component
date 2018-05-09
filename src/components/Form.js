@@ -1,14 +1,32 @@
 import React from 'react';
 
 class Form extends React.Component {
-    constructor (props) {
-      super(props);
-      this.addOptions = this.addOptions.bind(this);
-      this.state = {
-        error: undefined
-      }
+    state = {
+      error: undefined
     }
-    addOptions(e) {
+    //-------------------- old method
+    // constructor (props) {
+    //   super(props);
+    //   this.addOptions = this.addOptions.bind(this);
+    //   this.state = {
+    //     error: undefined
+    //   }
+    // }
+
+    //------------ old emthod
+    // addOptions(e) {
+    //   e.preventDefault();
+    //   let value = e.target.elements.option.value.trim();
+    //   let error = this.props.addOption(value);
+    //   this.setState((e) => ({
+    //     error: error
+    //   }))
+    //   if (!error) {
+    //     e.target.elements.option.value = ''
+    //   }
+    // }
+
+    addOptions = (e) => {
       e.preventDefault();
       let value = e.target.elements.option.value.trim();
       let error = this.props.addOption(value);
